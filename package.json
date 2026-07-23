@@ -1,0 +1,20 @@
+{
+  "name": "yt-clone_project",
+  "version": "1.0.0",
+  "description": "a backend project of similar to a YT-Clone",
+  "keywords": [
+    "javascript",
+    "chai",
+    "nodeJS",
+    "Express",
+    "MongoDB",
+    "MERN"
+  ],
+  "license": "ISC",
+  "author": "Hussain Durrani",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  }
+}
