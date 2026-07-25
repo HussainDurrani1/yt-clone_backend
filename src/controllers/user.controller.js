@@ -28,7 +28,7 @@ const registerUser = asyncHandler(async (req, res) => {
     // console.log(req.files?.avatar[0]);
     // console.log(req.files?.avatar[0]?.path);
 
-    const avatarLocalPath = req.files?.avatar[0]?.path;
+    // const avatarLocalPath = req.files?.avatar[0]?.path;
     // const coverImageLocalPath = req.files?.coverImage[0]?.path;
 
     let coverImageLocalPath;
@@ -74,10 +74,9 @@ const registerUser = asyncHandler(async (req, res) => {
         throw new ApiError(500, "Something went wrong while registering the User")
     }
 
+    console.log(`User is registered: ${createdUser.username}`);
     return res.status(201).json(new ApiResponse(200, createdUser, "User Registered Successfully✌️"))
 
-
-    res.status(200).json({ msg: "user registered successfully" })
 })
 
 export { registerUser }
