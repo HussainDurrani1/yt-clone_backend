@@ -16,5 +16,4 @@ router.route('/register')
         }
     ]), registerUser)
 
-
 export default router;
