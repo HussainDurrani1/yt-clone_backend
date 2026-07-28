@@ -28,6 +28,8 @@ router.route('/register')
 router.route('/login').post(loginUser)
 
 // Secured Routes:
+// There is a helmet js middleware for security (learn about that)
+
 router.route('/logout').post(verifyJWT, logoutUser)
 
 router.route('/refresh-token').post(refreshAccessToken)
