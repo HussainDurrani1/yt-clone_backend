@@ -182,6 +182,8 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
         const options = {
             httpOnly: true,
             secure: true,
+            sameSite: "strict",
+            maxAge: 7 * 24 * 60 * 60 * 1000     // 7 Days
         }
 
         const { accessToken, newRefreshToken } = await generateAccessAndRefreshToken(user._id)
@@ -216,6 +218,18 @@ const changeCurrentPassword = asyncHandler(async (req, res) => {
 })
 
 const getCurrentUser = asyncHandler(async (req, res) => {
+
+    // (Add in request) Authorization Header = 'Bearer ................................................'
+    // const token = req.headers.authorization?.split(' ')[1];
+    // if (!token){
+    //     return res.status(400).json(new ApiError(400, {}, "Token is required."))
+    // }
+
+    // const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET)
+    // const userID = decoded.id;
+    // const user = await User.findById(userID)
+    // return res.status(200).json(new ApiResponse(200, user, "Current user fetched successfully...")
+
     return res.status(200).json(new ApiResponse(200, req.user, "Current user fetched successfully..."))
 })
 
@@ -432,5 +446,5 @@ export {
     changeCurrentPassword, getCurrentUser,
     updateAccountDetails, updateUserAvatar,
     updateUserCoverImage, getUserChannelProfile,
-    getWatchHistory, 
+    getWatchHistory,
 }
